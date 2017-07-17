@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\DB;
 use Request;
 
 class ProdutoController extends Controller {
+
+	public function __construct() {
+		$this->middleware('auth-middleware', ['only' => ['adiciona', 'remover']]);
+	}
+
 	public function lista() {
 		//$produtos = DB::select('select * from produtos;');
 
@@ -60,11 +65,11 @@ class ProdutoController extends Controller {
 	}
 
 	public function remover($id) {
+
 		$produto = Produto::find($id);
 		if (!empty($produto)) {
 			$produto->delete();
 			return redirect()->action('ProdutoController@lista');
 		}
 	}
-
 }

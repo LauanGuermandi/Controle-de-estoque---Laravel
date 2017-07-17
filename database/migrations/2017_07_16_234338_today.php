@@ -18,6 +18,7 @@ class Today extends Migration {
 			$table->integer('quantidade');
 			$table->string('descricao');
 		});
+
 	}
 
 	/**
@@ -26,6 +27,7 @@ class Today extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		//
+		Schema::dropIfExists('users');
+		Schema::dropIfExists('produtos');
 	}
 }

@@ -9,6 +9,8 @@ color: white;
 li p.navbar-text, a.navbar-brand {
 color: white!important ;
 font-weight: bolder;
+padding: 2%;
+margin:5%;
 }
 footer.footer {
 background-color: #337ab7;

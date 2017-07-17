@@ -20,10 +20,19 @@
                     Controle de estoque - Laravel
                   </a>
               </div>
-              <ul class="nav navbar-nav navbar-right">
+              <div class="nav navbar-nav">
                 <li><a href="{{action('ProdutoController@lista')}}">Listagem</a></li>
-                <li><a href="{{action('ProdutoController@novo')}}">Novo</a></li>
-              </ul>
+                @if(!Auth::guest())
+                  <li><a href="{{action('ProdutoController@novo')}}">Novo</a><
+                  <li><a href="{{action('LoginController@registro')}}">Registrar</a></li>
+                  <li id="sair">
+                  <a href="{{action('LoginController@logout')}}">{{Auth::user()->name}}
+                  , Sair<spam class="caret"></spam></a>
+                  </li>
+                @else
+                  <li><a href="{{action('LoginController@login')}}">Entrar</a></li>
+                @endif
+              </div>
             </ul>
           </nav>
         </div>
